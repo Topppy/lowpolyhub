@@ -1,25 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import s from './App.module.css';
+import Stage from './components/Stage';
+import Menu from './components/Menu';
+import Code from './components/Code';
+import Bar from './components/Bar';
 
 function App() {
+  const [item, setItem] = useState('CokeCola');
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main className={s.app}>
+      <Menu onClick={setItem} cur={item} />
+      <Bar onClick={() => {}} />
+      <Stage item={item} />
+      <Code item={item} />
+    </main>
   );
 }
 
